@@ -85,7 +85,7 @@ extension Reactive where Base: WKWebView {
     }
     
     /// Reactive wrapper for delegate method `webViewWebContentProcessDidTerminate(_ webView: WKWebView)`.
-    @available(iOS 9.0, *)
+    @available(iOS 9.0, macOS 10.11, *)
     public var didTerminate: ControlEvent<WKWebView> {
         let source: Observable<WKWebView> = delegate
             .methodInvoked(.didTerminate)
@@ -250,7 +250,7 @@ extension Selector {
     static let didFailNavigation = #selector(WKNavigationDelegate.webView(_:didFail:withError:))
     static let didFailProvisionalNavigation = #selector(WKNavigationDelegate.webView(_:didFailProvisionalNavigation:withError:))
     static let didReceiveChallenge = #selector(WKNavigationDelegate.webView(_:didReceive:completionHandler:))
-    @available(iOS 9.0, *)
+    @available(iOS 9.0, macOS 10.11, *)
     static let didTerminate = #selector(WKNavigationDelegate.webViewWebContentProcessDidTerminate(_:))
     /// Xcode give error when selectors results into having same signature
     /// because of swift style you get for example:
